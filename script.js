@@ -1,5 +1,5 @@
 // Paste your deployed Google Apps Script Web App URL here
-const ENDPOINT = "https://script.google.com/macros/s/AKfycbxSkcJ4WM98AxD86ci5EAaSdYEuP4U5OvhtTWZevQwb-CLa-LbJ8aJKFq_xUM7xvYNi/exec";
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbyWMBCEKg_TO3nMkYL9RNP7iKm_KFX1uCSBmRhAzoTJ280KII1YeP-PgWMK89-Wnk8/exec";
 
 const form = document.getElementById("messageForm");
 const statusEl = document.getElementById("status");
