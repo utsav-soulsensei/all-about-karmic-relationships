@@ -10,17 +10,9 @@
   <main class="card qr-card">
     <h1>Send Tamanna a message</h1>
     <p class="subtitle">Scan this QR code with your phone camera</p>
-    <div id="qr" class="qr-box">
-      <img id="qrImg" alt="QR code" />
+    <div class="qr-box">
+      <img src="qr.png" alt="QR code to message form" />
     </div>
-    <p id="formUrl" class="form-url"></p>
   </main>
-
-  <script>
-    const formUrl = new URL("index.html", window.location.href).href;
-    document.getElementById("formUrl").textContent = formUrl;
-    const qrApi = "https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=10&data=" + encodeURIComponent(formUrl);
-    document.getElementById("qrImg").src = qrApi;
-  </script>
 </body>
 </html>
