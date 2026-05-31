@@ -109,6 +109,44 @@ function stopShuffle() {
   }
 }
 
+function fireConfetti() {
+  if (typeof confetti !== "function") return;
+  const colors = ["#e85a8c", "#c93f72", "#ffd700", "#ff8fab", "#ffb3c6"];
+
+  confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: { y: 0.6 },
+    colors: colors,
+  });
+  setTimeout(() => {
+    confetti({
+      particleCount: 60,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0, y: 0.7 },
+      colors: colors,
+    });
+    confetti({
+      particleCount: 60,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1, y: 0.7 },
+      colors: colors,
+    });
+  }, 250);
+  setTimeout(() => {
+    confetti({
+      particleCount: 80,
+      spread: 100,
+      startVelocity: 35,
+      origin: { y: 0.5 },
+      colors: colors,
+      shapes: ["star", "circle"],
+    });
+  }, 600);
+}
+
 els.revealBtn.addEventListener("click", () => {
   els.revealBtn.disabled = true;
   startShuffle();
@@ -124,6 +162,7 @@ els.revealBtn.addEventListener("click", () => {
     els.revealBtn.hidden = true;
     els.nextBtn.hidden = false;
     els.nextBtn.textContent = idx === WINNER_COUNT - 1 ? "Finish" : "Next winner";
+    fireConfetti();
   }, 2200);
 });
 
@@ -131,10 +170,24 @@ els.nextBtn.addEventListener("click", () => {
   idx += 1;
   if (idx >= WINNER_COUNT) {
     show("done");
+    finaleConfetti();
     return;
   }
   prepareReveal();
 });
+
+els.startBtn.addEventListener("click", () => { /* hook for finale */ });
+
+function finaleConfetti() {
+  if (typeof confetti !== "function") return;
+  const end = Date.now() + 2500;
+  const colors = ["#e85a8c", "#ffd700", "#ff8fab", "#c93f72"];
+  (function frame() {
+    confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors });
+    confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  })();
+}
 
 els.restartBtn.addEventListener("click", () => {
   els.password.value = "";
