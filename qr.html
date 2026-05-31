@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scan to message Tamanna</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card qr-card">
+    <h1>Send Tamanna a message</h1>
+    <p class="subtitle">Scan this QR code with your phone camera</p>
+    <div id="qr" class="qr-box"></div>
+    <p id="formUrl" class="form-url"></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script>
+    const formUrl = new URL("index.html", window.location.href).href;
+    document.getElementById("formUrl").textContent = formUrl;
+    QRCode.toCanvas(
+      document.createElement("canvas"),
+      formUrl,
+      { width: 360, margin: 2, color: { dark: "#c93f72", light: "#ffffff" } },
+      function (err, canvas) {
+        if (err) {
+          document.getElementById("qr").textContent = "Failed to generate QR.";
+          return;
+        }
+        document.getElementById("qr").appendChild(canvas);
+      }
+    );
+  </script>
+</body>
+</html>
