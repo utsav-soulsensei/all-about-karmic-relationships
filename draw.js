@@ -16,7 +16,7 @@ const els = {
   stage: document.getElementById("stage"),
   result: document.getElementById("result"),
   winnerName: document.getElementById("winnerName"),
-  winnerMessage: document.getElementById("winnerMessage"),
+  winnerPhone: document.getElementById("winnerPhone"),
   revealBtn: document.getElementById("revealBtn"),
   nextBtn: document.getElementById("nextBtn"),
   done: document.getElementById("done"),
@@ -119,7 +119,7 @@ els.revealBtn.addEventListener("click", () => {
     els.shuffleName.textContent = w.name;
     els.stage.classList.add("revealed");
     els.winnerName.textContent = w.name;
-    els.winnerMessage.textContent = w.message;
+    els.winnerPhone.textContent = w.phone;
     els.result.hidden = false;
     els.revealBtn.hidden = true;
     els.nextBtn.hidden = false;
