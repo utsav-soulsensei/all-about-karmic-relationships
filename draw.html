@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucky Draw — Tamanna</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card draw-card">
+    <!-- Gate -->
+    <section id="gate">
+      <h1>Lucky Draw</h1>
+      <p class="subtitle">Enter the password to begin.</p>
+      <form id="gateForm">
+        <label>
+          <span>Password</span>
+          <input type="password" id="password" required autocomplete="off" />
+        </label>
+        <button type="submit" id="gateBtn">Unlock</button>
+        <p id="gateStatus" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Start -->
+    <section id="start" hidden>
+      <h1>Ready to draw</h1>
+      <p class="subtitle"><span id="totalCount">0</span> messages received. 5 lucky winners will be revealed one by one.</p>
+      <button id="startBtn">Pick 5 winners</button>
+    </section>
+
+    <!-- Reveal -->
+    <section id="reveal" hidden>
+      <p class="counter">Winner <span id="current">1</span> of 5</p>
+      <div id="stage" class="stage">
+        <div id="shuffleName" class="shuffle-name">?</div>
+      </div>
+      <div id="result" class="result" hidden>
+        <h2 id="winnerName"></h2>
+        <p id="winnerMessage"></p>
+      </div>
+      <div class="actions">
+        <button id="revealBtn">Reveal winner</button>
+        <button id="nextBtn" hidden>Next winner</button>
+      </div>
+    </section>
+
+    <!-- Done -->
+    <section id="done" hidden>
+      <h1>That's all 5!</h1>
+      <p class="subtitle">Thank you everyone who sent in a message.</p>
+      <button id="restartBtn">Start over</button>
+    </section>
+  </main>
+
+  <script src="draw.js"></script>
+</body>
+</html>
