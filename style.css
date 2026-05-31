@@ -21,15 +21,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  padding: 32px 24px;
+  gap: 20px;
+}
+
+body > .card:only-of-type:not(:has(~ *)) {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Center single-card pages (form, QR) vertically */
+body:not(:has(.brand)) {
   justify-content: center;
-  padding: 24px;
-  gap: 18px;
 }
 
 .brand {
   text-align: center;
   max-width: 520px;
   width: 100%;
+  margin-top: 12px;
 }
 .brand-eyebrow {
   margin: 0 0 6px;
@@ -67,6 +78,17 @@ body {
   text-transform: uppercase;
   text-align: center;
   opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  body { padding: 20px 16px; gap: 16px; }
+  .brand-title { font-size: 1.4rem; }
+  .brand-eyebrow { font-size: 0.7rem; letter-spacing: 2px; }
+  .stage { padding: 36px 16px; min-height: 110px; }
+  .shuffle-name { font-size: 1.7rem; }
+  .stage.revealed .shuffle-name { font-size: 2.1rem; }
+  .result h2 { font-size: 1.5rem; }
 }
 
 .card {
