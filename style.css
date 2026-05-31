@@ -1,0 +1,110 @@
+:root {
+  --bg: #fff5f7;
+  --card: #ffffff;
+  --accent: #e85a8c;
+  --accent-dark: #c93f72;
+  --text: #2b2b2b;
+  --muted: #7a6b70;
+  --border: #f1d5de;
+  --error: #c0392b;
+  --success: #2e8b57;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #ffe6ee 0%, #fff5f7 50%, #ffeae0 100%);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 32px 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(232, 90, 140, 0.15);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.7rem;
+  color: var(--accent-dark);
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+form { display: flex; flex-direction: column; gap: 14px; }
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input, textarea {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text);
+  background: #fffafc;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 90, 140, 0.15);
+}
+
+textarea { resize: vertical; min-height: 100px; }
+
+button {
+  margin-top: 6px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
+}
+
+button:hover:not(:disabled) { background: var(--accent-dark); }
+button:active:not(:disabled) { transform: translateY(1px); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.status {
+  margin: 8px 0 0;
+  font-size: 0.92rem;
+  text-align: center;
+  min-height: 1.2em;
+}
+.status.error { color: var(--error); }
+.status.success { color: var(--success); }
+
+.thankyou {
+  text-align: center;
+  padding: 20px 0;
+}
+.thankyou h2 { color: var(--accent-dark); margin: 0 0 8px; }
+.thankyou p { color: var(--muted); margin: 0; }
